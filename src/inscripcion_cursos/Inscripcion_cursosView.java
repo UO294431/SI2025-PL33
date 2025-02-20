@@ -31,13 +31,14 @@ public class Inscripcion_cursosView {
 	}
 	
      private void iniciate() {
+    	 //Diseñamos una ventana de tamaño 492x422
 	    	frame = new JFrame();
 			frame.setTitle("Inscripción de curso");
 			frame.setName("Inscripción");
 			frame.setBounds(0, 0, 492, 422);
 			frame.setResizable(false); // para que la ventana no pueda cambiar de tamaño 
 			frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-			frame.getContentPane().setLayout(new MigLayout("", "[grow]", "[][][grow][][][][][][][][]"));
+			frame.getContentPane().setLayout(new MigLayout("", "[grow]", "[][][grow][][][][][][][][]")); //Es el layout que usaremos dividiendolo en filas y columnas
 			
 			final JLabel lblinscripción;
 			final JLabel lblistacursos;
@@ -51,7 +52,7 @@ public class Inscripcion_cursosView {
 			JTnumero = new JTextField ();
 			JTnumero.setName("JTnumero");
 			frame.getContentPane().add(JTnumero, "cell 0 2");
-			JTnumero.setColumns(15);
+			JTnumero.setColumns(15); //Campo de texto que ocupa 15 columnas 
 			
 			 // Agregar KeyListener para restringir la entrada y solo se pueden incluir caracteres numéricos
 			JTnumero.addKeyListener(new KeyAdapter() {
@@ -77,19 +78,20 @@ public class Inscripcion_cursosView {
 	          
 	        });
 			
-		btnNumero = new JButton("Comprobar datos");
+		btnNumero = new JButton("Comprobar datos"); //Boton de comparar datos que mas adelante cargará los datos del colegiado
 		IntroducirNúmero.setLabelFor(btnNumero);
 		frame.getContentPane().add(btnNumero, "cell 1 2");
 		
 		lblistacursos = new JLabel("Lista de los cursos disponibles:");
 		frame.getContentPane().add(lblistacursos, "cell 0 3");
-		
+		//Lista desplegable de cursos disponibles 
 		lstCursos = new JComboBox<>();
 		frame.getContentPane().add(lstCursos, "cell 0 4,growx");
 		
 		JLabel lblDatoscolegiado = new JLabel("Datos personales del colegiado:");
 		frame.getContentPane().add(lblDatoscolegiado, "cell 0 5");
 		
+		//Tabla donde más adelante se cargarán los datos del coelgiado a partir de su identificador
 		tabDatos = new JTable();
 		tabDatos.setName("tabDetalle");
 		tabDatos.setRowSelectionAllowed(false);
@@ -99,7 +101,7 @@ public class Inscripcion_cursosView {
 		tableDetallePanel.setMinimumSize(new Dimension(200,220));
 		tableDetallePanel.setPreferredSize(new Dimension(700,220));
 		frame.getContentPane().add(tableDetallePanel, "cell 0 6 2 1");
-		
+		//Boton para inscribir a un colegiado al curso 
 		btnInscripcion = new JButton("Inscribirse");
 		IntroducirNúmero.setLabelFor(btnInscripcion);
 		frame.getContentPane().add(btnInscripcion, "cell 1 7,alignx right");
