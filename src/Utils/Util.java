@@ -1,4 +1,4 @@
-package giis.demo.util;
+package Utils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.Format;

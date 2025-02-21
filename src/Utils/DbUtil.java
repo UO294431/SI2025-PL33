@@ -1,4 +1,4 @@
-package giis.demo.util;
+package Utils;
 
 import java.io.IOException;
 import java.nio.file.Files;
