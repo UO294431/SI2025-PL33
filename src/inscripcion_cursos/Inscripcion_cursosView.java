@@ -35,7 +35,7 @@ public class Inscripcion_cursosView {
 	    	frame = new JFrame();
 			frame.setTitle("Inscripción de curso");
 			frame.setName("Inscripción");
-			frame.setBounds(0, 0, 492, 422);
+			frame.setBounds(0, 0, 592, 422);
 			frame.setResizable(false); // para que la ventana no pueda cambiar de tamaño 
 			frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 			frame.getContentPane().setLayout(new MigLayout("", "[grow]", "[][][grow][][][][][][][][]")); //Es el layout que usaremos dividiendolo en filas y columnas
@@ -46,7 +46,7 @@ public class Inscripcion_cursosView {
 			frame.getContentPane().add(lblinscripción, "cell 0 0 3 1, center"); // texto explicativo de la ventana
 			
 			final JLabel IntroducirNúmero;
-			IntroducirNúmero= new JLabel("Introduzca su número de colegiado:");
+			IntroducirNúmero= new JLabel("Introduzca su número de colegiado o precolegiado:");
 			frame.getContentPane().add(IntroducirNúmero, "flowx,cell 0 2");
 			
 			JTnumero = new JTextField ();
@@ -54,7 +54,7 @@ public class Inscripcion_cursosView {
 			frame.getContentPane().add(JTnumero, "cell 0 2");
 			JTnumero.setColumns(15); //Campo de texto que ocupa 15 columnas 
 			
-			 // Agregar KeyListener para restringir la entrada y solo se pueden incluir caracteres numéricos
+			 // Agregar KeyListener para restringir la entrada y solo se pueden incluir caracteres numéricos más adelante irán en controller
 			JTnumero.addKeyListener(new KeyAdapter() {
 	            @Override
 	            public void keyTyped(KeyEvent e) { //keytyped registra el evento de teclado y llama al método
@@ -66,7 +66,7 @@ public class Inscripcion_cursosView {
 	            }
 	          
 	        });
-			//Este método hará una consulta con el número del colegiado al hacer enter o en su defecto tmb al hacer click en un boton
+			//Este método hará una consulta con el número del colegiado al hacer enter o en su defecto tmb al hacer click en un boton más adelante irán en controller
 			JTnumero.addKeyListener(new KeyAdapter() {
 	            @Override
 	            public void keyPressed(KeyEvent e) {
@@ -108,16 +108,28 @@ public class Inscripcion_cursosView {
 			
 	    }
      
-     	
+     //los getters y setters de los campos de los atributos
+     public JFrame getFrame() {return frame;}
+     public void setFrame(JFrame frame) {this.frame = frame;}
+     public JTextField getJTnumero() {return JTnumero;}
+     public void setJTnumero(JTextField jTnumero) {JTnumero = jTnumero;}
+     public JButton getBtnNumero() {return btnNumero;}
+     public void setBtnNumero(JButton btnNumero) {this.btnNumero = btnNumero;}
+     public JButton getBtnInscripcion() {return btnInscripcion;}
+     public void setBtnInscripcion(JButton btnInscripcion) {this.btnInscripcion = btnInscripcion;}
+     public JComboBox<Object> getLstCursos() {return lstCursos;}
+     public void setLstCursos(JComboBox<Object> lstCursos) {this.lstCursos = lstCursos;}
+     public JLabel getDatosPersonales() {return DatosPersonales;}
+     public void setDatosPersonales(JLabel datosPersonales) {DatosPersonales = datosPersonales;}
+     public JTable getTabDatos() {return tabDatos;}
+     public void setTabDatos(JTable tabDatos) {this.tabDatos = tabDatos;}
      
-     
-	
-	
-public static void main(String[] args) 
-{
+     //Se eliminará más adelante 
+     public static void main(String[] args) 
+     {
 	Inscripcion_cursosView obj = new Inscripcion_cursosView();
 	obj.frame.setVisible(true);
 	
-}
+     }
 
 }
